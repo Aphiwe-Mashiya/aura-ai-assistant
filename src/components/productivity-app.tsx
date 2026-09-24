@@ -30,7 +30,7 @@ type SavedState = {
 };
 
 const initialState: SavedState = {
-  name: "Aphiwe",
+  name: "\n",
   role: "Product Manager",
   email: { recipient: "", subject: "", purpose: "", keyPoints: "", tone: "Friendly", output: "" },
   meeting: { notes: "", summary: "", actions: "", decisions: "", deadlines: "" },
@@ -95,7 +95,7 @@ export function ProductivityApp() {
       <div className={`transition-[padding] duration-300 ${collapsed ? "lg:pl-[88px]" : "lg:pl-[260px]"}`}>
         <header className="sticky top-0 z-20 grid h-16 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 border-b border-border bg-background/90 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
           <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu"><Menu /></Button>
-          <div className="min-w-0"><p className="truncate text-sm font-semibold">{views.find((item) => item.id === view)?.label}</p><p className="hidden text-xs text-muted-foreground sm:block">Work smarter, one task at a time.</p></div>
+          <div className="min-w-0"><p className="truncate text-sm font-semibold">{views.find((item) => item.id === view)?.label}</p><p className="hidden text-xs text-muted-foreground sm:block">AI can make mistakes. Always review before professional use.</p></div>
           <div className="flex items-center gap-2"><span className="hidden items-center gap-1.5 rounded-full bg-success-soft px-3 py-1.5 text-xs font-semibold text-success sm:flex"><span className="size-1.5 rounded-full bg-success" />Local mode</span><button onClick={() => navigate("settings")} className="grid size-9 place-items-center rounded-full bg-avatar text-sm font-bold text-avatar-foreground" aria-label="Open settings">{firstName(state.name).slice(0, 1).toUpperCase()}</button></div>
         </header>
         <main className="mx-auto w-full max-w-[1440px] px-4 py-7 sm:px-6 lg:px-8 lg:py-9">
