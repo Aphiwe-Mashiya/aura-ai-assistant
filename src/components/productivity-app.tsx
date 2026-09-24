@@ -63,7 +63,11 @@ export function ProductivityApp() {
     if (hydrated) localStorage.setItem("ai-workplace-state", JSON.stringify(state));
   }, [state, hydrated]);
 
-  const navigate = (next: View) => { setView(next); setMobileOpen(false); };
+  const navigate = (next: View) => {
+    if (view === "email" && next !== "email") setState((s) => ({ ...s, email: initialState.email }));
+    setView(next);
+    setMobileOpen(false);
+  };
   const completed = state.tasks.filter((task) => task.done).length;
 
   return (
