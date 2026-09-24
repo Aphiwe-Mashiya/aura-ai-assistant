@@ -30,8 +30,8 @@ type SavedState = {
 };
 
 const initialState: SavedState = {
-  name: "\n",
-  role: "Aphiwe MashiProduct Manager",
+  name: "Aphiwe Mashiya",
+  role: "Product Manager",
   email: { recipient: "", subject: "", purpose: "", keyPoints: "", tone: "Friendly", output: "" },
   meeting: { notes: "", summary: "", actions: "", decisions: "", deadlines: "" },
   tasks: [
