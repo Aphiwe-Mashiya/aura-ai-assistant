@@ -159,7 +159,7 @@ function EmailGenerator({ state, setState }: { state: SavedState; setState: Reac
       const opening = email.tone === "Persuasive" ? `I’m reaching out because ${email.purpose.toLowerCase()}, and I believe this is a timely opportunity for us to move forward.` : email.tone === "Formal" ? `I am writing regarding ${email.purpose.toLowerCase()}.` : `I wanted to connect about ${email.purpose.toLowerCase()}.`;
       const points = email.keyPoints.split(/\n|,/).map((p) => p.trim()).filter(Boolean).map((p) => `• ${p}`).join("\n");
       const close = email.tone === "Formal" ? "Please let me know if you require any additional information.\n\nKind regards," : email.tone === "Persuasive" ? "Could we take the next step this week? I’m happy to make the process easy from here.\n\nBest," : "Let me know what works for you—I’m happy to help.\n\nBest,";
-      update("output", `${email.subject}\n\n${greeting}\n\n${opening}${points ? `\n\nHere are the key details:\n${points}` : ""}\n\n${close}\n${state.name}`); setLoading(false); toast.success("Your email draft is ready.");
+      update("output", `${email.subject}\n\n${greeting}\n\n${opening}${points ? `\n\nHere are the key details:\n${points}` : ""}\n\n${close}\n\n[Please enter your name here]`); setLoading(false); toast.success("Your email draft is ready.");
     }, 850);
   };
   const clear = () => { setState((s) => ({ ...s, email: initialState.email })); toast("Email workspace cleared."); };
